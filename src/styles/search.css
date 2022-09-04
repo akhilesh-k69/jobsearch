@@ -1,62 +1,64 @@
-
-.search-bar{
-    margin: 0 40px;
-    display: flex;
-    align-content: center;
+.search-bar {
+  margin: 0 40px;
+  display: flex;
+  align-items: center;
 }
-.message{
-    font-size: 16px;
-    text-align: center;
-    font-weight: 700;
-    color: #294964;
-    padding: 20px;
+.message {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+  color: #294964;
 }
-span{
-    color: #0064ff;
-    font-size: 18px;
-    line-height: 1.33;
-   
+span {
+  color: #0064ff;
+  font-size: 18px;
+  line-height: 1.33;
 }
-.search-text, .pincode-text
-{
-    color: #a8a8a8;
-    width: 100%;
-    border: 1px solid ;
-    outline: none;
-    height: 48px;
-    margin: 10px;
-    padding: 10px;
-    font-size: 18px;
-    box-shadow: none;
-    box-sizing: border-box;
-    border-radius: 4px;
-    background-color: #fff;
+.search-text,
+.pincode-text {
+  color: #a8a8a8;
+  width: 100%;
+  border: 1px solid;
+  outline: none;
+  height: 48px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 18px;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #fff;
 }
 
-.search-button{
-    color: #fff;
-    display: flex;
-    align-items: center;
-    height: 48px;
-    font-weight: 700;
-    background-color: #5cb910;
+.search-button {
+  width: fit-content;
+  background-color: #4caf50;
+  color: white;
+  height: 54px;
+  width: 48px;
+  padding: 0px 0px;
+  margin: 0px 0 0 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-/* .pincode-text
-{
-    margin-left: 10px;
-} */
-/* .search-text{
-    color: #40434d;
-    font-size: 20px;
-    font: inherit;
-    width: 100%;
-    border: 0;
-    height: 1.1876em;
-    margin: 0;
-    display: block;
-    padding: 0;
-    min-width: none;
-    background: none;
-    box-sizing: content-box;
-
-} */
+.text-field {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.container {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 15px;
+}

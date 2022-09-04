@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from "react";
-//import dataJson from "../data.json";
 import JobCard from "./jobcard";
 import SearchIcon from "@mui/icons-material/Search";
 import {
@@ -8,10 +7,10 @@ import {
   TextField,
   CircularProgress,
   Pagination,
+  Container,
 } from "@mui/material";
 import "../styles/search.css";
 import usePagination from "./pagination";
-//import { fetchData } from "./data";
 export default function Search() {
   const [job, setJob] = useState("Full Time Jobs");
   const [pincode, setPincode] = useState("58104");
@@ -27,7 +26,7 @@ export default function Search() {
   const param = {
     query: job,
     start: 0,
-    limit: 25,
+    limit: 20,
     zipcode: pincode,
     source: "upward",
     ip: "103.185.160.253",
@@ -89,39 +88,31 @@ export default function Search() {
     };
 
     return (
-      <div>
+      <div className="container">
         <div className="search-bar">
-          <Grid container spacing={3}>
-            <Grid item xs={8}>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                value={job}
-                onChange={(e) => setJob(e.target.value)}
-                style={{ width: "100%" }}
-                required
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                value={pincode}
-                onChange={(e) => setPincode(e.target.value)}
-                style={{ width: "100%" }}
-              />
-            </Grid>
-            <Grid item xs={1}>
-              <Button
-                type="submit"
-                className="search-button"
-                onClick={click}
-                style={{ backgroundColor: "#5cb910", color: "white" }}
-              >
-                <SearchIcon />
-              </Button>
-            </Grid>
-          </Grid>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            value={job}
+            onChange={(e) => setJob(e.target.value)}
+            style={{ width: "100%", margin: "5px" }}
+            required
+          />
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            value={pincode}
+            onChange={(e) => setPincode(e.target.value)}
+            style={{ width: "50%", margin: "5px" }}
+          />
+          <Button
+            type="submit"
+            className="search-button"
+            onClick={click}
+            style={{ backgroundColor: "#5cb910", color: "white" }}
+          >
+            <SearchIcon />
+          </Button>
         </div>
         <p className="message">
           Search Results For <span>{jobHighlight}</span> Near{" "}
@@ -134,20 +125,28 @@ export default function Search() {
             </div>
           );
         })}
-
-        <Pagination
-          count={count}
-          size="large"
-          page={page}
-          variant="outlined"
-          shape="rounded"
-          onChange={handleChange}
-        />
+        <div className="pagination">
+          <Pagination
+            count={count}
+            size="large"
+            page={page}
+            variant="outlined"
+            shape="rounded"
+            onChange={handleChange}
+          />
+        </div>
       </div>
     );
   } else
     return (
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <CircularProgress />
       </div>
     );

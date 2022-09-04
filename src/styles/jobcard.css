@@ -1,63 +1,36 @@
-*{
-  padding: 0;
-  margin: 0;
-}
 
-.container{
-  padding: 0 20px;
-  margin: 0 20px;
-}
-.job-element-card {
-  margin: 0 0 12px;
-  padding: 10px 0 0 10px;
-  background: #fff;
+.job-card {
   border: 1px solid #d8e0e7;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.job-element-card h1 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #273b4a;
-  line-height: 1.14;
-  padding-bottom: 5px;
-}
-.job-element-card h2 {
-  font-size: 12px;
-  font-weight: 400;
-  color: #41434d;
-  line-height: 1.14;
-  margin-bottom: 5px;
-}
-.job-list-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 90%;
-}
-.job-element-card a {
-  font-size: 12px;
-  color: #3f8dd3;
-  text-decoration: none;
-  line-height: 1.14;
-}
-.job-wrap-card {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  text-decoration: none;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 0px;
+  margin: 10px;
+    
 }
-.job-apply-wrapper{
-  display: flex;
-  color: green;
-  flex-direction: column-reverse;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding-left: 4px;
-  position: relative;
+.job-card h1 {
+  font-size: 16px;
+  color: #273b4a
 }
+.job-card h2 {
+  font-size: 12px;
+  color: #41434d;
+  font-weight: 500;
+}
+.job-card a {
+  font-size: 12px;
+  color: #3f8dd3;
+}
+
+.job-image{
+  border-radius: 100px;
+  size: 2px;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+}
+
+

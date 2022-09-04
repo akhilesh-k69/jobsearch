@@ -1,6 +1,7 @@
 import { React } from "react";
 import "../styles/jobcard.css";
 import { Avatar, Container, Grid } from "@mui/material";
+import clsx from "clsx";
 
 export default function JobCard({ jobDetails, key}) {
 
@@ -9,9 +10,9 @@ export default function JobCard({ jobDetails, key}) {
     <a
       href={jobDetails.url}
       target="__blank"
-      className="job-element-card job-wrap-card"
+      className="job-card"
     >
-      <Avatar src={jobDetails.logo} style={{ height: "48px", width: "48px" }} sx={{padding: "0", margin: "0"}} />
+      <img src={jobDetails.logo} className="job-image" />
       <div className="job-list-card">
         <h1>{jobDetails.title}</h1>
         <h2>{jobDetails.location}</h2>
