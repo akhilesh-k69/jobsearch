@@ -1,5 +1,8 @@
+*{
+    margin: 2px
+}
+
 .search-bar {
-  margin: 0 40px;
   display: flex;
   align-items: center;
 }
@@ -60,5 +63,4 @@ span {
 .container {
     width: auto;
     margin: 0 auto;
-    padding: 0 15px;
 }
