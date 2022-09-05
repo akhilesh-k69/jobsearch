@@ -3,44 +3,39 @@ import JobCard from "./jobcard";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Button,
-  Grid,
   TextField,
   CircularProgress,
   Pagination,
-  Container,
 } from "@mui/material";
 import "../styles/search.css";
-import usePagination from "./pagination";
 export default function Search() {
   const [job, setJob] = useState("Full Time Jobs");
   const [pincode, setPincode] = useState("58104");
   const [jobHighlight, setJobHighlight] = useState("Full Time Job");
   const [pincodeHighlight, setPincodeHighlight] = useState("58104");
   const [search, setSearch] = useState("Full Time Jobs");
-
-  const [data, setData] = useState([]);
-  const PER_PAGE = 10;
+  const [jobsData, setJobsData] = useState([]);
   const [page, setPage] = useState(1);
-
+  const [start, setStart] = useState(0);
+  const PER_PAGE = 10;  
   let count;
-  const param = {
-    query: job,
-    start: 0,
-    limit: 20,
-    zipcode: pincode,
-    source: "upward",
-    ip: "103.185.160.253",
-    sid: "6c6d92ba166e4d8ab2f5e5f690f8c4b3",
-  };
-  let query = Object.keys(param)
-    .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(param[k]))
-    .join("&");
-
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [start]);
 
   async function fetchData() {
+    const param = {
+      query: job,
+      start: start,
+      limit: 10,
+      zipcode: pincode,
+      source: "upward",
+      ip: "103.185.160.253",
+      sid: "6c6d92ba166e4d8ab2f5e5f690f8c4b3",
+    };
+    let query = Object.keys(param)
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(param[k]))
+      .join("&");
     const stax = await fetch(
       "https://staging.api.cnxdserv.com/a/api/v2/jobResults?" + query,
       {
@@ -63,7 +58,7 @@ export default function Search() {
         referrerPolicy: "strict-origin-when-cross-origin",
       }
     ).then((response) => response.json());
-    setData(stax);
+    setJobsData(stax);
   }
 
   const click = () => {
@@ -74,17 +69,17 @@ export default function Search() {
     setPincodeHighlight(pincode);
     setJobHighlight(job);
     setSearch(job);
+    setStart(0);
     fetchData();
   };
 
-  const _DATA = usePagination(data, PER_PAGE);
 
-  if (Object.keys(data).length != 0) {
-    count = Math.ceil(data.data.jobs.length / PER_PAGE);
-    console.log("length", count);
+  if (Object.keys(jobsData).length != 0) {
+    count = Math.ceil(jobsData.data.totalCount / PER_PAGE);
     const handleChange = (e, p) => {
       setPage(p);
-      _DATA.jump(p);
+      console.log("p is ", p , " and (p-1)*10 is ", (p-1)*10)
+      setStart((p-1)*10);
     };
 
     return (
@@ -118,7 +113,7 @@ export default function Search() {
           Search Results For <span>{jobHighlight}</span> Near{" "}
           <span>{pincodeHighlight}</span>
         </p>
-        {_DATA.currentData().map((job, index) => {
+        {jobsData.data.jobs.map((job, index) => {
           return (
             <div>
               <JobCard jobDetails={job} key={index} />
