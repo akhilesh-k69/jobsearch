@@ -1,7 +1,5 @@
 import { React } from "react";
 import "../styles/jobcard.css";
-import { Avatar, Container, Grid } from "@mui/material";
-import clsx from "clsx";
 
 export default function JobCard({ jobDetails, key}) {
 
