@@ -1,12 +1,7 @@
 import { React, useState, useEffect } from "react";
 import JobCard from "./jobcard";
 import SearchIcon from "@mui/icons-material/Search";
-import {
-  Button,
-  TextField,
-  CircularProgress,
-  Pagination,
-} from "@mui/material";
+import { Button, TextField, CircularProgress, Pagination } from "@mui/material";
 import "../styles/search.css";
 export default function Search() {
   const [job, setJob] = useState("Full Time Jobs");
@@ -17,7 +12,7 @@ export default function Search() {
   const [jobsData, setJobsData] = useState([]);
   const [page, setPage] = useState(1);
   const [start, setStart] = useState(0);
-  const PER_PAGE = 10;  
+  const PER_PAGE = 10;
   let count;
   useEffect(() => {
     fetchData();
@@ -73,13 +68,11 @@ export default function Search() {
     fetchData();
   };
 
-
   if (Object.keys(jobsData).length != 0) {
     count = Math.ceil(jobsData.data.totalCount / PER_PAGE);
     const handleChange = (e, p) => {
       setPage(p);
-      console.log("p is ", p , " and (p-1)*10 is ", (p-1)*10)
-      setStart((p-1)*10);
+      setStart((p - 1) * 10);
     };
 
     return (

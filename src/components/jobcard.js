@@ -17,7 +17,6 @@ export default function JobCard({ jobDetails, key}) {
         <h1>{jobDetails.title}</h1>
         <h2>{jobDetails.location}</h2>
         <a>View Description</a>
-        {/* <p className="job-apply-wrapper">View Salary</p> */}
       </div>
     </a>
     </div>
