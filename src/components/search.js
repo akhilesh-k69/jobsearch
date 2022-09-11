@@ -43,29 +43,28 @@ export default function Search() {
     return (
       <div className="container">
         <div className="search-bar">
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
+          <input
+            type="text"
+            className="inputButton"
             value={job}
             onChange={(e) => setJob(e.target.value)}
-            style={{ width: "100%", margin: "5px" }}
             required
           />
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
+          <input
+            type="text"
+            className="inputButton"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
             style={{ width: "50%", margin: "5px" }}
           />
-          <Button
+          <button
             type="submit"
             className="search-button"
             onClick={click}
             style={{ backgroundColor: "#5cb910", color: "white" }}
           >
             <SearchIcon />
-          </Button>
+          </button>
         </div>
         <p className="message">
           Search Results For <span>{jobHighlight}</span> Near{" "}
@@ -94,29 +93,28 @@ export default function Search() {
     return (
       <div>
         <div className="search-bar">
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
+          <input
+            type="text"
+            className="inputButton"
             value={job}
             onChange={(e) => setJob(e.target.value)}
-            style={{ width: "100%", margin: "5px" }}
             required
           />
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
+          <input
+            type="text"
+            className="inputButton"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
             style={{ width: "50%", margin: "5px" }}
           />
-          <Button
+          <button
             type="submit"
             className="search-button"
             onClick={click}
             style={{ backgroundColor: "#5cb910", color: "white" }}
           >
             <SearchIcon />
-          </Button>
+          </button>
         </div>
         <p className="message">
           Search Results For <span>{jobHighlight}</span> Near{" "}
